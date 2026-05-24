@@ -19,7 +19,7 @@ $$
 v(X_t,t)+ w*(1+λ*M) \circ [v(X_t,y,t)-v(X_t,t)],
 $$ 
 
-where $$ \circ $$ denotes elementwise multiplication. The $$ (1+λ*M) $$ term can make guidance strength on condition-correlated regions bigger than 1, and make the strength on the uncorrelated regions smaller than 1.
+where $$\circ$$ denotes elementwise multiplication. The $$(1+λ*M)$$ term can make guidance strength on condition-correlated regions bigger than 1, and make the strength on the uncorrelated regions smaller than 1.
 
 
 [1] Towards Understanding the Mechanisms of Classifier-Free Guidance, https://arxiv.org/abs/2505.19210.
