@@ -23,7 +23,11 @@ $$
 
 where $$\circ$$ denotes elementwise multiplication. The $$(1+λ*M)$$ term can make guidance strength on condition-correlated regions bigger than 1, and make the strength on the uncorrelated regions smaller than 1.
 
+The generative model is Just image Transformers (JIT) [3].
+
 
 [1] Towards Understanding the Mechanisms of Classifier-Free Guidance, https://arxiv.org/abs/2505.19210.
 
 [2] Continuous Thought Machines, https://openreview.net/forum?id=y0wDflmpLk.
+
+[3] Back to Basics: Let Denoising Generative Models Denoise, https://arxiv.org/abs/2511.13720.
