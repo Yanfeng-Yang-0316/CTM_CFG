@@ -3,6 +3,7 @@ Use Continuous Thought Machine to automatically adjust the guidance scale of Cla
 
 https://github.com/user-attachments/assets/f4782f12-b876-4191-bd0b-73ede19d8064 
 
+# Introduction
 Classifier-free guidance (CFG) is a well-known technique for injecting and amplifying conditional information when generating images under given conditions. Specifically, CFG replaces the vector field in the above ODE with the interpolation $$v(X_t,t)+w[v(X_t,y,t)-v(X_t,t)]$$, where $$w$$ is a positive guidance strength that controls the strength of the condition $$y$$. The guidance strength $$w$$ in the original CFG is a static constant. A small $$w$$ is often insufficient to make the generated image align well with the condition $$y$$, whereas an excessively large $$w$$ often distorts image details. 
 
 THe motivation of this code is inspired by the recent study [1], which shows that the guidance strength $$w$$ in CFG tends to enhance condition-specific features while suppressing general features. However, their interpretation is derived in a linear diffusion model, where such components can still be analyzed explicitly through the difference of the conditional and unconditional covariance. For realistic nonlinear neural networks, this kind of analytical decomposition is no longer tractable. Therefore, instead of trying to separate condition-specific and general features analytically, I use the internal attention masks of CTM as a data-dependent proxy for where condition-relevant information is located, and then spatially weight the CFG strength accordingly. 
@@ -23,7 +24,10 @@ $$
 
 where $$\circ$$ denotes elementwise multiplication. The $$(1+λ*M)$$ term can make guidance strength on condition-correlated regions bigger than 1, and make the strength on the uncorrelated regions smaller than 1.
 
-The generative model is Just image Transformers (JIT) [3].
+
+# Usage
+
+The generative model is Just image Transformers (JIT) [3]. Please download their github code and model
 
 Kind remind: Please use Reflect padding in the ResNet (many thanks to a very clever guy). Specifically, change this function in https://github.com/SakanaAI/continuous-thought-machines/blob/main/models/resnet.py#L352:
 ```bash
