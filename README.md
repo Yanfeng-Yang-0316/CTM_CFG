@@ -27,9 +27,13 @@ where $$\circ$$ denotes elementwise multiplication. The $$(1+λ*M)$$ term can ma
 
 # Usage
 
-The generative model is Just image Transformers (JIT) [3]. Please download their github code and model
+The generative model is Just image Transformers (JIT) [3]. Please download their github code and model, and CTM's code, then run the notebook file.
 
-Kind remind: Please use Reflect padding in the ResNet (many thanks to a very clever guy). Specifically, change this function in https://github.com/SakanaAI/continuous-thought-machines/blob/main/models/resnet.py#L352:
+# Requirements
+
+Please install CTM's env or JIT's env. Their env are highly interoperable.
+
+Remind: Please use Reflect padding in the ResNet (many thanks to a very clever guy). Specifically, change this function in https://github.com/SakanaAI/continuous-thought-machines/blob/main/models/resnet.py#L352:
 ```bash
 def prepare_resnet_backbone(backbone_type):
       
