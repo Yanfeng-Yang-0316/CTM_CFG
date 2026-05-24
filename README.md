@@ -1,7 +1,7 @@
 # CTM_CFG
 Use Continuous Thought Machine to automatically adjust the guidance scale of Classifier Free Guidance. 
 
-<video src="assets/jit_ctm.mp4" controls autoplay loop muted width="800"></video>
+[<video src="assets/jit_ctm.mp4" controls autoplay loop muted width="800"></video>](https://github.com/Yanfeng-Yang-0316/CTM_CFG/blob/main/jit_ctm.mp4)
 
 Classifier-free guidance (CFG) is a well-known technique for injecting and amplifying conditional information when generating images under given conditions. Specifically, CFG replaces the vector field in the above ODE with the interpolation $$v(X_t,t)+w[v(X_t,y,t)-v(X_t,t)]$$, where $$w$$ is a positive guidance strength that controls the strength of the condition $$y$$. The guidance strength $$w$$ in the original CFG is a static constant. A small $$w$$ is often insufficient to make the generated image align well with the condition $$y$$, whereas an excessively large $$w$$ often distorts image details. 
 
