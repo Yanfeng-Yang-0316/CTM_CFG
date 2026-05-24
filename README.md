@@ -27,7 +27,7 @@ where $$\circ$$ denotes elementwise multiplication. The $$(1+λ*M)$$ term can ma
 
 # Usage
 
-The generative model is Just image Transformers (JIT) [3]. Please download their github code and model, and CTM's code, then run the notebook file.
+The generative model is Just image Transformers (JIT) [3]. Please download their github code and model, and CTM's code, then run the notebook file. Please adjust the path by youself.
 
 # Requirements
 
