@@ -25,6 +25,35 @@ where $$\circ$$ denotes elementwise multiplication. The $$(1+λ*M)$$ term can ma
 
 The generative model is Just image Transformers (JIT) [3].
 
+Kind remind: Please use Reflect padding in the ResNet. Specifically, change this function in https://github.com/SakanaAI/continuous-thought-machines/blob/main/models/resnet.py#L352:
+```bash
+def prepare_resnet_backbone(backbone_type):
+      
+    resnet_family = resnet18 # Default
+    if '34' in backbone_type: resnet_family = resnet34
+    if '50' in backbone_type: resnet_family = resnet50
+    if '101' in backbone_type: resnet_family = resnet101
+    if '152' in backbone_type: resnet_family = resnet152
+
+    # Determine which ResNet blocks to keep
+    block_num_str = backbone_type.split('-')[-1]
+    hyper_blocks_to_keep = list(range(1, int(block_num_str) + 1)) if block_num_str.isdigit() else [1, 2, 3, 4]
+
+    backbone = resnet_family(
+        3,
+        hyper_blocks_to_keep,
+        stride=2,
+        pretrained=False,
+        progress=True,
+        device="cpu",
+        do_initial_max_pool=True,
+    )
+    for m in backbone.modules():
+        if isinstance(m, nn.Conv2d) and m.padding != (0, 0):
+            m.padding_mode = "reflect"
+
+    return backbone
+```
 
 [1] Towards Understanding the Mechanisms of Classifier-Free Guidance, https://arxiv.org/abs/2505.19210.
 
