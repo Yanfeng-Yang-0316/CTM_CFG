@@ -33,7 +33,7 @@ The generative model is Just image Transformers (JIT) [3]. Please download their
 
 Please install CTM's env or JIT's env. Their env are highly interoperable.
 
-Remind: Please use Reflect padding in the ResNet (many thanks to a very clever guy). Specifically, change this function in https://github.com/SakanaAI/continuous-thought-machines/blob/main/models/resnet.py#L352:
+Remind: Please use Reflect padding in the ResNet. Specifically, change this function in https://github.com/SakanaAI/continuous-thought-machines/blob/main/models/resnet.py#L352:
 ```bash
 def prepare_resnet_backbone(backbone_type):
       
